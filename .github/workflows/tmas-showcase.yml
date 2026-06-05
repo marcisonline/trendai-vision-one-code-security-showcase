@@ -342,24 +342,3 @@ jobs:
           ---
           *Powered by [Trend Vision One — Artifact Scanner](https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-integrating-tmas-ci-cd-pipeline)*
           SUMMARY
-
-  customer-example-testing:
-        name: JF United Rentals Test Scan
-        runs-on: ubuntu-latest
-        steps:
-        
-          - name: Checkout
-            uses: actions/checkout@v4
-            with:
-              path: trendai-vision-one-code-security-showcase
-    
-          - name: customer code block
-            uses: trendmicro/tmas-scan-action@v3.1.3
-            with:
-              vulnerabilitiesScan: true
-              malwareScan: false
-              secretsScan: true
-              artifact: dir:./trendai-vision-one-code-security-showcase
-              additionalArgs: --region=us-east-1
-              tmasApiKey: ${{ secrets.TMAS_API_KEY }}
-              githubToken: ${{ secrets.GITHUB_TOKEN }}
